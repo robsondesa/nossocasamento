@@ -90,7 +90,7 @@ function filterItems(filter) {
 }
 
 // Defina a data do casamento (ano, mês (zero indexado), dia)
-var weddingDate = new Date(2025, 4, 21);
+var weddingDate = new Date(2025, 3, 21);
 
 function updateCountdown() {
   var now = new Date();
