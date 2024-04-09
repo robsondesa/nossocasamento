@@ -89,23 +89,28 @@ function filterItems(filter) {
   });
 }
 
-// Defina a data do casamento (ano, mês (zero indexado), dia)
-var weddingDate = new Date(2025, 3, 21);
+// Defina a data do casamento (ano, mês (zero indexado), dia, hora, minuto, segundo)
+var weddingDate = new Date(2025, 3, 21, 18, 0, 0); // 21 de abril de 2025, às 18:00
 
 function updateCountdown() {
   var now = new Date();
-  var timeDifference = weddingDate - now;
   
   // Verifique se o casamento já ocorreu
-  if (timeDifference <= 0) {
-    document.getElementById('countdown').innerHTML = 'O casamento já ocorreu!';
+  if (now >= weddingDate) {
+    document.getElementById('countdown').innerHTML = 'O casamento está ocorrendo!';
   } else {
+    var timeDifference = weddingDate - now;
     var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
     
     document.getElementById('countdown').innerHTML = days + 'D ' + hours + 'H ' + minutes + 'M ' + seconds + 'S';
+  }
+  
+  // Verifique se o casamento já terminou
+  if (now > new Date(weddingDate.getFullYear(), weddingDate.getMonth(), weddingDate.getDate(), 23, 59, 59)) {
+    document.getElementById('countdown').innerHTML = 'O casamento já terminou!';
   }
 }
 
