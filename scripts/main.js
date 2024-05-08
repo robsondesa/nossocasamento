@@ -115,6 +115,7 @@ function updateCountdown() {
 // Atualize a contagem regressiva a cada segundo
 setInterval(updateCountdown, 1000);
 
+
 // Fechar o menu após clicar em um item do menu e rolar diretamente para a seção correspondente
 $('.navbar-nav>li>a').on('click', function(event) {
   // Fecha o menu
@@ -137,6 +138,9 @@ $('.navbar-nav>li>a').on('click', function(event) {
     window.location.hash = hash;
   }
 });
+
+
+
 
 // Light Box
 $(document).on("click", '[data-toggle="lightbox"]', function(event) {
