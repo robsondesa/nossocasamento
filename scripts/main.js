@@ -21,25 +21,23 @@ $("a.smooth-scroll").click(function(event) {
     if (target.length) {
       // Only prevent default if animation is actually gonna happen
       event.preventDefault();
-      $("html, body").animate(
-        {
-          scrollTop: target.offset().top
-        },
-        2000,
-        function() {
-          // Callback after animation
-          // Must change focus!
-          var $target = $(target);
-          $target.focus();
-          if ($target.is(":focus")) {
-            // Checking if the target was focused
-            return false;
-          } else {
-            $target.attr("tabindex", "-1"); // Adding tabindex for elements not focusable
-            $target.focus(); // Set focus again
-          }
-        }
-      );
+
+      // Check if smooth scrolling is supported
+      if ('scrollBehavior' in document.documentElement.style) {
+        // Use native smooth scrolling
+        window.scrollTo({
+          top: target.offset().top,
+          behavior: 'smooth'
+        });
+      } else {
+        // Use jQuery animate fallback for browsers that don't support smooth scrolling
+        $("html, body").animate(
+          {
+            scrollTop: target.offset().top
+          },
+          800 // Adjust animation speed as needed
+        );
+      }
     }
   }
 });
@@ -139,8 +137,6 @@ $('.navbar-nav>li>a').on('click', function(event) {
     window.location.hash = hash;
   }
 });
-
-
 
 // Light Box
 $(document).on("click", '[data-toggle="lightbox"]', function(event) {
