@@ -117,10 +117,29 @@ function updateCountdown() {
 // Atualize a contagem regressiva a cada segundo
 setInterval(updateCountdown, 1000);
 
-// Fechar o menu após clicar em um item do menu
-$('.navbar-nav>li>a').on('click', function(){
+// Fechar o menu após clicar em um item do menu e rolar diretamente para a seção correspondente
+$('.navbar-nav>li>a').on('click', function(event) {
+  // Fecha o menu
   $('.navbar-collapse').collapse('hide');
+
+  // Verifica se o link tem um hash (#) no href
+  if (this.hash !== "") {
+    event.preventDefault(); // Previne o comportamento padrão de clicar no link
+
+    // Armazena o hash (#) do link clicado
+    var hash = this.hash;
+
+    // Obtem a posição da seção correspondente
+    var targetOffset = $(hash).offset().top;
+
+    // Define a posição de rolagem diretamente para a seção correspondente
+    $('html, body').scrollTop(targetOffset);
+
+    // Adiciona o hash (#) ao URL após a rolagem (opcional)
+    window.location.hash = hash;
+  }
 });
+
 
 
 // Light Box
