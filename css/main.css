@@ -277,7 +277,7 @@ body::-webkit-scrollbar-corner {
 /* Media query para telas menores que 768px (exemplo: celulares) */
 @media (max-width: 767px) {
   #countdown {
-    font-size: 30px; /* Reduz o tamanho da fonte */
+    font-size: 25px; /* Reduz o tamanho da fonte */
     padding: 8px; /* Reduz o preenchimento interno */
     margin-top: 10px; /* Reduz a margem superior */
   }
