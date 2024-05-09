@@ -27,6 +27,10 @@
     <link href="css/main.css?ver=1.1.0" rel="stylesheet">
   </head>
   <body id="top">
+      <!-- Elemento de carregamento -->
+      <div id="loading-overlay">
+        <div class="spinner"></div>
+      </div>
     <header></header>
     <div class="page-content">
       <div class="div">
@@ -119,32 +123,30 @@
   <div class="container ww-wedding-gifts">
     <h2 class="h1 text-center pt-3 ww-title">Lista de Presentes ou Pix</h2>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 col-12 text-center mb-4">
         <h3 class="h4 mt-3"><strong>Listas de Presentes</strong></h3>
         <br>
         <a href="https://listas.casasbahia.com.br/marianerobson" target="_blank">
-          <img src="images/logo.svg" alt="" style="width: 240px;">
+          <img src="images/logo.svg" alt="" style="width: 240px; height: auto;">
         </a>
-        <br>
         <hr style="height: 2px; border: none; background-color: #333; margin: 20px 0;">
         <a href="https://www.ferreiracosta.com/lista-de-casamento/presentes/marianerobson" target="_blank">
-          <img src="images/logo_fc.svg" alt="" style="width: 240px;">
+          <img src="images/logo_fc.svg" alt="" style="width: 240px; height: auto;">
         </a>
-        <p>Selecionamos algumas coisas para nosso novo lar. 
-        <br>Se você sentir de nos ajudar nessa realização, <strong>basta tocar na imagem de preferência!</strong></p>
+        <p>Ao escolher a lista de presentes acima, você será redirecionado para loja,<br><strong>basta tocar na imagem de preferência!</strong></p>
+
       </div>
-      <div class="col-md-6">
-        <h3 class="h4 mt-3"><strong>PIX para ajudar os Noivos</strong></h3>
-        <p>Se você deseja presentear os noivos via PIX, utilize os seguintes dados:</p>
-        <ul>
-          <li><strong>Chave PIX: </strong> melodesa101@gmail.com</li>
-          <img src="images/qr_pix.png" alt="" style="width: 100px;">
-        </ul>
-        <p>Por favor, inclua seu nome como mensagem ao realizar a transferência para que possamos agradecer.</p>
+      <div class="col-md-6 col-12 mb-4 text-center mb-4">
+        <h3 class="h4 mt-3"><strong>PIX dos Noivos</strong></h3>
+        <br>
+        <p><strong>Chave PIX: </strong> melodesa101@gmail.com</p>
+        <img src="images/qr_pix.png" alt="" style="width: 105px; height: auto;">
+        <p class="mt-3">Por favor, inclua seu nome como mensagem ao realizar a transferência para que possamos agradecer.</p>
       </div>
     </div>
   </div>
 </div>
+
 <div class="ww-section ww-rsvp-detail text-white" id="rsvp">
   <div class="container">
     <div class="col text-center">
@@ -265,6 +267,7 @@
 }
 
 </script>
+
 <div class="ww-section bg-light" id="gallery">
   <div class="ww-photo-gallery">
     <div class="container">
@@ -285,6 +288,17 @@
     </div>
   </div>
 </div>
+<!-- Script JavaScript -->
+<script>
+  // Exibe o overlay de carregamento ao carregar a página
+  window.addEventListener('load', function() {
+      const loadingOverlay = document.getElementById('loading-overlay');
+      loadingOverlay.classList.add('show'); // Mostra o overlay
+      setTimeout(function() {
+          loadingOverlay.classList.remove('show'); // Esconde o overlay após um tempo (simulando o carregamento)
+      }, 3000); // Ajuste o tempo conforme necessário
+  });
+</script>
 <div class="ww-footer bg-light">
   <div class="container text-center py-4">
     <p class="my-0">&copy; M & R. Todos os direitos reservados.</p>
