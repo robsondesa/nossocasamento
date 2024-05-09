@@ -1,5 +1,6 @@
 body {
-  font-family: "sans-serif";
+  font-family: "Montserrat";
+  font-weight: 400;
   overflow-y: scroll; /* Adiciona uma barra de rolagem vertical à página inteira */
   
 }
