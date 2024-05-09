@@ -294,8 +294,11 @@
   window.addEventListener('load', function() {
       const loadingOverlay = document.getElementById('loading-overlay');
       loadingOverlay.classList.add('show'); // Mostra o overlay
+
+      // Simula o término do carregamento após um tempo (3 segundos)
       setTimeout(function() {
-          loadingOverlay.classList.remove('show'); // Esconde o overlay após um tempo (simulando o carregamento)
+          loadingOverlay.classList.remove('show'); // Esconde o overlay
+          document.getElementById('content').style.display = 'block'; // Exibe o conteúdo da página
       }, 3000); // Ajuste o tempo conforme necessário
   });
 </script>
