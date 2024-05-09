@@ -97,7 +97,7 @@ body::-webkit-scrollbar-corner {
       width: auto; }
       @media (max-width: 480px) {
         /* Altera a imagem para celular */
-        .ww-home-page {
+        .ww-home-page1 {
           background: url("../images/savethedate.jpg") no-repeat center center;
           background-size: cover;
         }
@@ -109,7 +109,7 @@ body::-webkit-scrollbar-corner {
     .ww-home-page1 .ww-wedding-announcement .ww-couple-name {
       font-size: 70px; }
       @media (max-width: 576px) {
-        .ww-home-page .ww-wedding-announcement .ww-couple-name {
+        .ww-home-page1 .ww-wedding-announcement .ww-couple-name {
           font-size: 30px; } }
 
 .ww-home-page:before {
