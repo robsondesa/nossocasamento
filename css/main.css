@@ -28,7 +28,7 @@ body::-webkit-scrollbar-corner {
 
 /* Home Page Style */
 .ww-home-page {
-  background: url("../images/TELA\ 2.png") no-repeat center center;
+  background: url("../images/nós\ \(3\).jpg") no-repeat center center;
   background-size: cover;
   background-position: 70%;
   height: 100vh;
@@ -55,7 +55,7 @@ body::-webkit-scrollbar-corner {
       @media (max-width: 480px) {
         /* Altera a imagem para celular */
         .ww-home-page {
-          background: url("../images/nós\ \(4\).jpg") no-repeat center center;
+          background: url("../images/TELA\ 2.png") no-repeat center center;
           background-size: cover;
         }
 
