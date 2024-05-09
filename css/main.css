@@ -109,7 +109,7 @@ body::-webkit-scrollbar-corner {
       @media (max-width: 480px) {
         /* Altera a imagem para celular */
         .ww-home-page1 {
-          background: url("../images/savethedate.jpg") no-repeat center center;
+          background: url("../images/telasave.jpg") no-repeat center center;
           background-size: cover;
         }
 
