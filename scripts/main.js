@@ -95,7 +95,7 @@ function updateCountdown() {
   
   // Verifique se o casamento já ocorreu
   if (now >= weddingDate) {
-    document.getElementById('countdown').innerHTML = 'O casamento está ocorrendo!';
+    document.getElementById('countdown').innerHTML = 'O casamento está acontecendo!';
   } else {
     var timeDifference = weddingDate - now;
     var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
