@@ -247,13 +247,11 @@ body::-webkit-scrollbar-corner {
 /* Common Style */
 .ww-title {
   font-family: "sans-serif";
-  font-size: 2rem;
 }
 
-.ww-section .ww-rsvp-detail .text-white .ww-title{
+.h1 ww-title pb-3{
   font-size: 2rem;
 }
-
 .ww-section {
   padding: 100px 0; }
 
