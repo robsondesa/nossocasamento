@@ -285,39 +285,3 @@ body::-webkit-scrollbar-corner {
     display: none;
   }
 }
-
-
-/* Estilos para o overlay de carregamento */
-#loading-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9); /* Fundo escuro semi-transparente */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999; /* Z-index alto para garantir que cubra outros elementos */
-  opacity: 0; /* Começa invisível */
-  transition: opacity 0.3s ease;
-}
-
-#loading-overlay.show {
-  opacity: 1; /* Torna visível com transição suave */
-}
-
-/* Estilos para o spinner de carregamento */
-.spinner {
-  border: 4px solid rgb(255, 255, 255); /* Borda do spinner */
-  border-top: 4px solid #4cbdf6; /* Borda superior do spinner (cor branca) */
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite; /* Animação de rotação */
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}

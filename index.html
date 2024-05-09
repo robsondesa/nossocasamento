@@ -27,10 +27,6 @@
     <link href="css/main.css?ver=1.1.0" rel="stylesheet">
   </head>
   <body id="top">
-      <!-- Elemento de carregamento -->
-      <div id="loading-overlay">
-        <div class="spinner"></div>
-      </div>
     <header></header>
     <div class="page-content">
       <div class="div">
@@ -288,20 +284,6 @@
     </div>
   </div>
 </div>
-<!-- Script JavaScript -->
-<script>
-  // Exibe o overlay de carregamento ao carregar a página
-  window.addEventListener('load', function() {
-      const loadingOverlay = document.getElementById('loading-overlay');
-      loadingOverlay.classList.add('show'); // Mostra o overlay
-
-      // Simula o término do carregamento após um tempo (3 segundos)
-      setTimeout(function() {
-          loadingOverlay.classList.remove('show'); // Esconde o overlay
-          document.getElementById('page-content').style.display = 'block'; // Exibe o conteúdo da página
-      }, 3000); // Ajuste o tempo conforme necessário
-  });
-</script>
 <div class="ww-footer bg-light">
   <div class="container text-center py-4">
     <p class="my-0">&copy; M & R. Todos os direitos reservados.</p>
