@@ -56,7 +56,7 @@ body::-webkit-scrollbar-corner {
       @media (max-width: 480px) {
         /* Altera a imagem para celular */
         .ww-home-page {
-          background: url("../images/TELA\ 2.png") no-repeat center center;
+          background: url("../images/tela1.jpg") no-repeat center center;
           background-size: cover;
         }
 
