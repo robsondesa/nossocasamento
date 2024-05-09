@@ -1,5 +1,5 @@
 body {
-  font-family: "Dosis", sans-serif;
+  font-family: "sans-serif";
   overflow-y: scroll; /* Adiciona uma barra de rolagem vertical à página inteira */
   
 }
@@ -69,6 +69,48 @@ body::-webkit-scrollbar-corner {
         .ww-home-page .ww-wedding-announcement .ww-couple-name {
           font-size: 30px; } }
 
+/* Home Page Style */
+.ww-home-page1 {
+  background: url("../images/save.jpg") no-repeat center center;
+  background-size: cover;
+  background-position: 70%;
+  height: 100vh;
+  min-height: 480px;
+  max-height: 1080px; }
+  .ww-home-page1 .ww-wedding-announcement .ww-couple-name {
+    font-size: 70px; }
+  .ww-home-page1 .ww-wedding-announcement {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    height: 100%;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    letter-spacing: 2px; }
+    .ww-home-page1 .ww-wedding-announcement .ww-announcement-container {
+      max-width: 600px;
+      text-align: center;
+      margin-left: 0;
+      z-index: 999; }
+    .ww-home-page1 .ww-wedding-announcement img {
+      max-height: 350px;
+      width: auto; }
+      @media (max-width: 480px) {
+        /* Altera a imagem para celular */
+        .ww-home-page {
+          background: url("../images/savethedate.jpg") no-repeat center center;
+          background-size: cover;
+        }
+
+        .ww-home-page1 .ww-wedding-announcement img {
+          max-height: 250px;
+          width: auto;
+        }}
+    .ww-home-page1 .ww-wedding-announcement .ww-couple-name {
+      font-size: 70px; }
+      @media (max-width: 576px) {
+        .ww-home-page .ww-wedding-announcement .ww-couple-name {
+          font-size: 30px; } }
 
 .ww-home-page:before {
   content: "";
