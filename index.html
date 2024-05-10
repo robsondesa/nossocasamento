@@ -27,6 +27,7 @@
     <link href="css/aos.css?ver=1.1.0" rel="stylesheet">
     <link href="css/ekko-lightbox.css?ver=1.1.0" rel="stylesheet">
     <link href="css/main.css?ver=1.1.0" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   </head>
   <body id="top">
     <header></header>
@@ -144,14 +145,41 @@
       </div>
       <div class="col-12 mb-4 text-center">
         <img src="images/Chave pix.jpeg" alt="" style="width: 100%; max-width: 200px; height: auto; border-radius: 14px; display: block; margin: 0 auto; margin-bottom: 10px;">
-        <p><strong>Chave PIX: </strong> melodesa101@gmail.com</p>
-      </div>
+        <p><strong>Chave PIX: </strong><span id="chavePixText">melodesa101@gmail.com</span></p>
+        <button class="btn btn-primary" onclick="copyChavePix()">
+          <i class="fas fa-copy"></i> Copiar
+        </button>
+      </div>         
       <div class="col-12 mb-4">
         <p>Clique na <big><b>chave Pix</b></big>, para copiar ou escaneie o <big><b>QR Code</b></big>, caso deseje nos ajudar com algum valor.</p>
       </div>
     </div>
   </div>
 </div>
+<script>
+  function copyChavePix() {
+    // Seleciona o texto do endereço de e-mail
+    var chavePixText = document.getElementById('chavePixText');
+    
+    // Cria um elemento de área de texto oculto
+    var tempInput = document.createElement('input');
+    tempInput.value = chavePixText.innerText;
+    document.body.appendChild(tempInput);
+    
+    // Seleciona o texto dentro do elemento
+    tempInput.select();
+    tempInput.setSelectionRange(0, 99999); // Para dispositivos móveis
+    
+    // Copia o texto para a área de transferência
+    document.execCommand('copy');
+    
+    // Remove o elemento temporário
+    document.body.removeChild(tempInput);
+    
+    // Mostra uma mensagem (opcional)
+    alert('Chave PIX copiado para a área de transferência!');
+  }
+</script>
 
 
 
