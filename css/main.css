@@ -251,7 +251,8 @@ body::-webkit-scrollbar-corner {
 
 /* Common Style */
 .ww-title {
-  font-family: "sans-serif";
+  font-family: "Montserrat";
+  font-weight: 600;
 }
 
 .h1 ww-title pb-3{
