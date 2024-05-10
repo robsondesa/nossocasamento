@@ -271,7 +271,7 @@ body::-webkit-scrollbar-corner {
   font-size: 50px;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.2);
-  padding: 10px;
+  padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   margin-top: 50px; /* Ajusta a margem superior para mover mais para baixo */
@@ -283,8 +283,8 @@ body::-webkit-scrollbar-corner {
 /* Media query para telas menores que 768px (exemplo: celulares) */
 @media (max-width: 767px) {
   #countdown {
-    font-size: 30px; /* Reduz o tamanho da fonte */
-    padding: 8px; /* Reduz o preenchimento interno */
+    font-size: 26px; /* Reduz o tamanho da fonte */
+    padding: 20px; /* Reduz o preenchimento interno */
     margin-top: 30px; /* Reduz a margem superior */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Mantém a sombra também na media query */
   }
