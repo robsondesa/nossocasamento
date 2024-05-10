@@ -267,7 +267,6 @@ body::-webkit-scrollbar-corner {
   color: #fff; }
 
 
-/* Estilos para a contagem regressiva */
 #countdown {
   font-size: 50px;
   color: #fff;
@@ -275,16 +274,19 @@ body::-webkit-scrollbar-corner {
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  margin-top: 20px;
+  margin-top: 50px; /* Ajusta a margem superior para mover mais para baixo */
   display: inline-block;
+  position: relative; /* Adiciona position: relative para ajustar a sombra */
+  top: 150px; /* Ajusta a posição vertical inicial */
 }
 
 /* Media query para telas menores que 768px (exemplo: celulares) */
 @media (max-width: 767px) {
   #countdown {
-    font-size: 20px; /* Reduz o tamanho da fonte */
-    padding: 5px; /* Reduz o preenchimento interno */
-    margin-top: 10px; /* Reduz a margem superior */
+    font-size: 30px; /* Reduz o tamanho da fonte */
+    padding: 8px; /* Reduz o preenchimento interno */
+    margin-top: 30px; /* Reduz a margem superior */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Mantém a sombra também na media query */
   }
 }
 
