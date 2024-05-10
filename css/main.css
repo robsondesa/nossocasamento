@@ -2,7 +2,7 @@ body {
   font-family: "Montserrat";
   font-weight: 400;
   overflow-y: scroll; /* Adiciona uma barra de rolagem vertical à página inteira */
-  
+  text-align:justify;
 }
 
 /* Estilos para o scrollbar do WebKit (Chrome, Safari, etc.) */
