@@ -151,37 +151,48 @@
         </button>
       </div>         
       <div class="col-12 mb-4">
-        <p>Aperte o botão<big><b>Copiar</b></big> acima, para pegar a chave PIX ou escaneie o <big><b>QR Code</b></big>, caso deseje nos enviar algum valor.</p>
+        <p>Aperte o botão<big><b> Copiar</b></big> acima, para pegar a chave PIX ou escaneie o <big><b>QR Code</b></big>, caso deseje nos enviar algum valor.</p>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Modal de Confirmação de Cópia -->
+<div class="modal fade" id="copiedModal" tabindex="-1" role="dialog" aria-labelledby="copiedModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="copiedModalLabel">Pix Copiado!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Chave PIX copiada para a área de transferência!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   function copyChavePix() {
-    // Seleciona o texto do endereço de e-mail
-    var chavePixText = document.getElementById('chavePixText');
-    
-    // Cria um elemento de área de texto oculto
-    var tempInput = document.createElement('input');
-    tempInput.value = chavePixText.innerText;
-    document.body.appendChild(tempInput);
-    
-    // Seleciona o texto dentro do elemento
-    tempInput.select();
-    tempInput.setSelectionRange(0, 99999); // Para dispositivos móveis
+    var chavePixText = document.getElementById('chavePixText').innerText;
     
     // Copia o texto para a área de transferência
-    document.execCommand('copy');
-    
-    // Remove o elemento temporário
-    document.body.removeChild(tempInput);
-    
-    // Mostra uma mensagem (opcional)
-    alert('Chave PIX copiado para a área de transferência!');
+    navigator.clipboard.writeText(chavePixText)
+      .then(function() {
+        // Exibe o modal de confirmação
+        $('#copiedModal').modal('show');
+      })
+      .catch(function(error) {
+        console.error('Erro ao copiar: ', error);
+        // Trate erros se necessário
+      });
   }
 </script>
-
-
 
 <div class="ww-section ww-rsvp-detail text-white" id="rsvp">
   <div class="container">
