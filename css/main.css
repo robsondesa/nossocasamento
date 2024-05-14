@@ -82,7 +82,7 @@ body::-webkit-scrollbar-corner {
 
 /* Home Page Style */
 .ww-home-page1 {
-  background: url("../images/save.jpg") no-repeat center center;
+  background: url("../images/nossave.jpg") no-repeat center center;
   background-size: cover;
   background-position: 70%;
   height: 100vh;
