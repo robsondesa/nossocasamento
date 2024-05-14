@@ -29,7 +29,7 @@ body::-webkit-scrollbar-corner {
 
 /* Home Page Style */
 .ww-home-page {
-  background: url("../images/nos.png") no-repeat center center;
+  background: url("../images/nos.jpg") no-repeat center center;
   background-size: cover;
   background-position: 70%;
   height: 100vh;
@@ -269,7 +269,7 @@ body::-webkit-scrollbar-corner {
 
 
 #countdown {
-  font-size: 50px;
+  font-size: 40px;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.2);
   padding: 20px;
