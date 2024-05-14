@@ -206,7 +206,8 @@ body::-webkit-scrollbar-corner {
   background: url("../images/Aquarela.png") no-repeat center center;
   background-size: cover;
   min-height: 500px;
-  position: relative; }
+  position: relative;
+  height: 100vh; }
   .ww-rsvp-detail .ww-rsvp-form {
     padding-left: 20%; }
     @media (max-width: 768px) {
