@@ -12,7 +12,7 @@ body::-webkit-scrollbar {
 
 /* Estilos para o botão de rolagem */
 body::-webkit-scrollbar-thumb {
-  background-color: #60D8DF; /* Cor do botão de rolagem */
+  background-color: #233769; /* Cor do botão de rolagem */
   border-radius: 2px; /* Borda arredondada do botão de rolagem */
 }
 
@@ -130,7 +130,7 @@ body::-webkit-scrollbar-corner {
 }
 /* Nav Bar Style */
 .ww-nav-bar .heart {
-  fill: #60D8DF;
+  fill: #233769;
   position: relative;
   top: 2px;
   width: 40px;
@@ -172,7 +172,7 @@ body::-webkit-scrollbar-corner {
   .ww-couple-gifts .carousel-indicators li {
     background-color: #6c757d; }
   .ww-couple-gifts .carousel-indicators .active {
-    background-color: #60D8DF; }
+    background-color: #233769; }
 
 /* Photo Gallery Style */
 .ww-photo-gallery .ww-category-filter a {
@@ -229,7 +229,7 @@ body::-webkit-scrollbar-corner {
       background: rgba(0, 0, 0, 0.3);
       color: #fff; }
     .ww-rsvp-detail .ww-rsvp-form .btn-submit {
-      background-color: #60D8DF;
+      background-color: #233769;
       padding: 0.45rem 1.5rem;
       border: 0; }
 
