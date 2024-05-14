@@ -29,7 +29,7 @@ body::-webkit-scrollbar-corner {
 
 /* Home Page Style */
 .ww-home-page {
-  background: url("../images/nós\ \(3\).jpg") no-repeat center center;
+  background: url("../images/nos.png") no-repeat center center;
   background-size: cover;
   background-position: 70%;
   height: 100vh;
