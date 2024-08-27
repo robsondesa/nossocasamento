@@ -1,0 +1,228 @@
+body {
+    font-family: "Montserrat";  
+    padding: 20px;
+    text-align: center;
+    background-image: url('img/Aquarela.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-size: cover; /* Reduz o tamanho do fundo no celular */
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 90px;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #8fbdef;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 0.8em;
+}
+
+.close {
+    color: #007bff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Ajuste para dispositivos móveis */
+@media only screen and (max-width: 768px) {
+    body {
+        background-image: url('img/Aquarela\ -\ mobile.png');
+        background-attachment: scroll;
+        background-size: auto 100%; /* Faz a imagem cobrir toda a altura, mantendo a largura proporcional */
+        background-position: center top; /* Alinha a imagem ao topo */
+    }
+    .modal-content {
+        background-color: white;
+        margin: 40% auto;
+        padding: 20px;
+        border: 1px solid #8fbdef;
+        width: 80%;
+        max-width: 400px;
+        border-radius: 8px;
+        text-align: left;
+        font-size: 0.8em;
+    }
+    #mercado-pago-button-container {
+        margin-top: 20px;
+        text-align: center; /* Centraliza o botão no contêiner */
+    }
+
+}
+
+#mercado-pago-button-container {
+    margin-top: 20px;
+    text-align: center; /* Centraliza o botão no contêiner */
+}
+
+header h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+header p{
+    color: #007bff;
+    font-size: 0.6em;
+}
+
+.gift-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #f7f5f5;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 150px;
+    height: 300px;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 0px 30px rgba(65, 130, 241, 0.1);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Garante que o botão fique na parte inferior */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 0 30px rgba(1, 35, 99, 0.2);
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .card {
+        width: calc(50% - 10px); /* Ajuste para telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 33%; /* Um card por linha em telas muito pequenas */
+    }
+}
+
+.card img {
+    max-width: 100%;
+    height: 150px;
+    border-radius: 8px;
+}
+@media only screen and (max-width: 768px) {
+    .card img {
+        max-width: 100%;
+        height: 115px;
+        border-radius: 8px;
+    }
+}
+
+.card h2 {
+    font-size: 0.7em;
+    margin: 10px 0;
+    height: 2.8em; /* Define uma altura fixa para os títulos */
+    text-overflow: ellipsis; /* Adiciona "..." ao final se o texto for muito longo */
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Limita a duas linhas */
+    -webkit-box-orient: vertical;
+}
+
+.card p {
+    font-size: 0.8em;
+    padding-top: 10px;
+    color: #06065f;
+    margin-bottom: auto; /* Empurra o texto para cima */
+}
+
+.card button {
+    margin-top: auto; /* Garante que o botão fique alinhado ao fundo */
+    padding: 10px 1px;
+    background-color: #0d72c5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+button i {
+    margin-left: 2px;
+    font-size: 12px;
+}
+
+.card button:hover {
+    background-color: #0b4d93;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-3px);
+}
+
+.card.reserved {
+    opacity: 0.5;
+}
+
+.card.reserved button {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+/* Estilo do filtro */
+.filter {
+    display: flex;
+    justify-content: right;
+    margin: 20px;
+}
+
+.filter label {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-right: 10px;
+    color: #333;
+    
+}
+
+.filter select {
+    font-size: 1rem;
+    padding: 8px 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.filter select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+

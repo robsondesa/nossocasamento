@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Presentes de Casamento</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Lista de Presentes</h1>
+        <p>Que bom ter você por aqui, sinta-se a vontade</p>
+    </header>
+
+    <!-- Filtro de Preços -->
+    <div class="filter">
+        <label for="price-filter">Ordenar por:</label>
+        <select id="price-filter" onchange="filterByPrice()">
+            <option value="default">Selecione</option>
+            <option value="asc">Menor Preço</option>
+            <option value="desc">Maior Preço</option>
+        </select>
+    </div>
+    <div class="gift-list" id="gift-list">
+        <!-- Cards de Presentes -->
+        <div class="card" data-id="1" data-price="2500">
+            <img src="img/tv.png" alt="Smart TV 55'">
+            <h2>TV de 55' para o noivo assistir a Champions League</h2>
+            <p>R$ 2.500,00</p>
+            <button onclick="openModal(1)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="2" data-price="3600">
+            <img src="img/geladeira.png" alt="Geladeira">
+            <h2>Geladeira</h2>
+            <p>R$ 3.600,00</p>
+            <button onclick="openModal(2)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="3" data-price="79.40">
+            <img src="img/no_image.jpg" alt="Kit edredom">
+            <h2>Kit edredom</h2>
+            <p>R$ 79,40</p>
+            <button onclick="openModal(3)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="4" data-price="96.48">
+            <img src="img/no_image.jpg" alt="Kit ferramenta">
+            <h2>Kit ferramenta</h2>
+            <p>R$ 96,48</p>
+            <button onclick="openModal(4)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="5" data-price="2623.45">
+            <img src="img/no_image.jpg" alt="Cama box">
+            <h2>Cama box</h2>
+            <p>R$ 2.623,45</p>
+            <button onclick="openModal(5)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="6" data-price="3722.84">
+            <img src="img/no_image.jpg" alt="Máquina de lavar">
+            <h2>Máquina de lavar</h2>
+            <p>R$ 3.722,84</p>
+            <button onclick="openModal(6)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="7" data-price="1292.90">
+            <img src="img/no_image.jpg" alt="TV para assistir Barbie enquanto o noivo assiste Champions">
+            <h2>TV para assistir Barbie enquanto o noivo assiste Champions</h2>
+            <p>R$ 1.292,90</p>
+            <button onclick="openModal(7)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="8" data-price="205.75">
+            <img src="img/no_image.jpg" alt="Aspirador de pó">
+            <h2>Aspirador de pó</h2>
+            <p>R$ 205,75</p>
+            <button onclick="openModal(8)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="9" data-price="104.98">
+            <img src="img/no_image.jpg" alt="Ferro de passar roupa">
+            <h2>Ferro de passar roupa</h2>
+            <p>R$ 104,98</p>
+            <button onclick="openModal(9)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="10" data-price="45.04">
+            <img src="img/no_image.jpg" alt="Kit toalha">
+            <h2>Kit toalha</h2>
+            <p>R$ 45,04</p>
+            <button onclick="openModal(10)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="11" data-price="398.82">
+            <img src="img/no_image.jpg" alt="Conjunto de panelas">
+            <h2>Conjunto de panelas</h2>
+            <p>R$ 398,82</p>
+            <button onclick="openModal(11)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="12" data-price="99.63">
+            <img src="img/no_image.jpg" alt="Tapete chique da Shopee">
+            <h2>Tapete chique da Shopee</h2>
+            <p>R$ 99,63</p>
+            <button onclick="openModal(12)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="13" data-price="952.06">
+            <img src="img/no_image.jpg" alt="Mesa sem cadeira pra comer em pé">
+            <h2>Mesa sem cadeira pra comer em pé</h2>
+            <p>R$ 952,06</p>
+            <button onclick="openModal(13)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="14" data-price="335.94">
+            <img src="img/no_image.jpg" alt="Air fryer para batata frita">
+            <h2>Air fryer para batata frita</h2>
+            <p>R$ 335,94</p>
+            <button onclick="openModal(14)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="15" data-price="2496.39">
+            <img src="img/no_image.jpg" alt="Sofá para o noivo trabalhar">
+            <h2>Sofá para o noivo Jogar FIFA com os amigos</h2>
+            <p>R$ 2.496,39</p>
+            <button onclick="openModal(15)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="16" data-price="1438.22">
+            <img src="img/no_image.jpg" alt="Guarda roupa da noiva com uma gaveta para o noivo">
+            <h2>Guarda roupa da noiva com uma gaveta para o noivo</h2>
+            <p>R$ 1.438,22</p>
+            <button onclick="openModal(16)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="17" data-price="278.09">
+            <img src="img/no_image.jpg" alt="Cafeteira para garantir o bom humor da noiva">
+            <h2>Cafeteira para garantir o bom humor da noiva</h2>
+            <p>R$ 278,09</p>
+            <button onclick="openModal(17)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="18" data-price="156.42">
+            <img src="img/no_image.jpg" alt="Liquidificador masterchef">
+            <h2>Liquidificador masterchef</h2>
+            <p>R$ 156,42</p>
+            <button onclick="openModal(18)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="19" data-price="301.33">
+            <img src="img/no_image.jpg" alt="Batedeira do bake off brasil">
+            <h2>Batedeira do bake off brasil</h2>
+            <p>R$ 301,33</p>
+            <button onclick="openModal(19)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="20" data-price="62.88">
+            <img src="img/no_image.jpg" alt="Lixeira do home office">
+            <h2>Lixeira do home office</h2>
+            <p>R$ 62,88</p>
+            <button onclick="openModal(20)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="21" data-price="52.49">
+            <img src="img/no_image.jpg" alt="Toma aqui uns 50 reais">
+            <h2>Toma aqui uns 50 reais</h2>
+            <p>R$ 52,49</p>
+            <button onclick="openModal(21)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="22" data-price="303.39">
+            <img src="img/no_image.jpg" alt="Espelho para noiva virar blogueira de look">
+            <h2>Espelho para noiva virar blogueira de look</h2>
+            <p>R$ 303,39</p>
+            <button onclick="openModal(22)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="23" data-price="20.89">
+            <img src="img/no_image.jpg" alt="1 mês de prime video">
+            <h2>1 mês de prime video</h2>
+            <p>R$ 20,89</p>
+            <button onclick="openModal(23)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="24" data-price="31.39">
+            <img src="img/no_image.jpg" alt="Frigideira para o noivo queimar comida">
+            <h2>Frigideira para o noivo queimar comida</h2>
+            <p>R$ 31,39</p>
+            <button onclick="openModal(24)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="25" data-price="195.16">
+            <img src="img/no_image.jpg" alt="Jantar romantico na lua de mel">
+            <h2>Jantar romantico na lua de mel</h2>
+            <p>R$ 195,16</p>
+            <button onclick="openModal(25)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="26" data-price="15.74">
+            <img src="img/no_image.jpg" alt="Lembrancinha da lua de mel">
+            <h2>Lembrancinha da lua de mel</h2>
+            <p>R$ 15,74</p>
+            <button onclick="openModal(26)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="27" data-price="48.28">
+            <img src="img/no_image.jpg" alt="Ajude o noivo a dar flores para a noiva">
+            <h2>Ajude o noivo a dar flores para a noiva</h2>
+            <p>R$ 48,28</p>
+            <button onclick="openModal(27)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="28" data-price="944.81">
+            <img src="img/no_image.jpg" alt="Terno do noivo para noiva chorar de emoção">
+            <h2>Terno do noivo para noiva chorar de emoção</h2>
+            <p>R$ 944,81</p>
+            <button onclick="openModal(28)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="29" data-price="116.52">
+            <img src="img/no_image.jpg" alt="Cota para a aposentadoria dos noivos">
+            <h2>Cota para a aposentadoria dos noivos</h2>
+            <p>R$ 116,52</p>
+            <button onclick="openModal(29)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="30" data-price="300.23">
+            <img src="img/no_image.jpg" alt="Cota 'amigos para sempre'">
+            <h2>Cota 'amigos para sempre'</h2>
+            <p>R$ 300,23</p>
+            <button onclick="openModal(30)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="31" data-price="8.39">
+            <img src="img/no_image.jpg" alt="Patrocine a noite do miojo">
+            <h2>Patrocine a noite do miojo</h2>
+            <p>R$ 8,39</p>
+            <button onclick="openModal(31)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="32" data-price="5245.84">
+            <img src="img/no_image.jpg" alt="PC gamer para o noivo ser feliz">
+            <h2>PC gamer para o noivo ser feliz</h2>
+            <p>R$ 5.245,84</p>
+            <button onclick="openModal(32)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="33" data-price="175.32">
+            <img src="img/no_image.jpg" alt="Pague a multa do noivo tocando sax depois do horário permitido">
+            <h2>Pague a multa do noivo tocando sax depois do horário permitido</h2>
+            <p>R$ 175,32</p>
+            <button onclick="openModal(33)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="34" data-price="355.88">
+            <img src="img/no_image.jpg" alt="Boletinho sincero">
+            <h2>Boletinho sincero</h2>
+            <p>R$ 355,88</p>
+            <button onclick="openModal(34)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="35" data-price="128.08">
+            <img src="img/no_image.jpg" alt="2 meses de academia para o noivo manter o foco">
+            <h2>2 meses de academia para o noivo manter o foco</h2>
+            <p>R$ 128,08</p>
+            <button onclick="openModal(35)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+        <div class="card" data-id="36" data-price="1782.56">
+            <img src="img/no_image.jpg" alt="Forno para o noivo aprender a fazer bolo">
+            <h2>Forno para o noivo aprender a fazer bolo</h2>
+            <p>R$ 1.782,56</p>
+            <button onclick="openModal(36)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+
+        <div class="card" data-id="37" data-price="997.31">
+            <img src="img/no_image.jpg" alt="Forno para o noivo aprender a fazer bolo">
+            <h2>Vaso sanitário para fazer as necessidades</h2>
+            <p>R$ 997,31</p>
+            <button onclick="openModal(37)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+
+        <div class="card" data-id="37" data-price="997.31">
+            <img src="img/no_image.jpg" alt="Forno para o noivo aprender a fazer bolo">
+            <h2>Ar condicionado para os noivos não passarem calor</h2>
+            <p>R$ 997,31</p>
+            <button onclick="openModal(37)">Presentear <i class="fas fa-gift"></i></button>
+        </div>
+        
+    </div>
+
+    <!-- Modal com Mercado Pago -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Você chegou até aqui, que alegria!</h2>
+            <p>Você escolheu: <b><span id="item-name"></span></b></p>
+            <p>Valor: R$ <b><span id="item-price"></span></b></p>
+            <h3>Opções de Pagamento:</h3>
+            <p>Cartão de Crédito ou Pix:</p>
+            <!-- Botão de Pagamento do Mercado Pago -->
+            <div id="mercado-pago-button-container">
+                <!-- O botão do Mercado Pago será inserido aqui pelo JavaScript -->
+            </div>
+        </div>
+    </div>
+    
+
+
+    <script src="scripts.js"></script>
+</body>
+</html>
