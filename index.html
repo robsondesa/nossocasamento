@@ -198,30 +198,42 @@
       <div class="col-md-10">
         <div class="card-body">
           <form id="confirmationForm" action="#" method="POST">
+            <div class="row pb-3">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="respondent-name">Nome do Respondente*</label>
+                  <input class="form-control" type="text" id="respondentName" name="respondentName" required="required"/>
+                </div>
+              </div>
+            </div>
             <div id="additionalFields">
               <div class="row">
                 <div class="col-md-6 pb-3">
                   <div class="form-group">
-                    <label for="name-input">Nome e Sobrenome*</label>
-                    <input class="form-control" type="text" name="name" required="required"/>
-                  </div>
-                </div>
-                <div class="col-md-6 pb-3">
-                  <div class="form-group">
-                    <label for="number-input">Sua senha*</label>
-                    <input class="form-control" type="number" name="number" required="required"/>
+                    <label for="name-input">Nome do Convidado*</label>
+                    <input class="form-control" type="text" name="guestName" required="required"/>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col text-center">
-              <button class="btn btn-secondary" onclick="adicionarCampo()">Adicionar outro convidado</button>
+            <div class="form-group pb-3">
+              <label>Todos os convidados irão?</label><br>
+              <input type="radio" name="allGoing" value="Sim" onclick="toggleGuestDetails(true)" required> Sim<br>
+              <input type="radio" name="allGoing" value="Não" onclick="toggleGuestDetails(false)"> Não<br>
             </div>
-            <br>
+            <div id="guestDetails" style="display: none;">
+              <div class="form-group pb-3">
+                <label for="attending-guests">Nomes dos que irão:</label>
+                <input class="form-control" type="text" id="attendingGuests" placeholder="Separe os nomes por vírgulas"/>
+              </div>
+              <div class="form-group pb-3">
+                <label for="absent-guests">Nomes dos que não irão:</label>
+                <input class="form-control" type="text" id="absentGuests" placeholder="Separe os nomes por vírgulas"/>
+              </div>
+            </div>
             <div class="row">
               <div class="col text-center">
-                <!-- Botão para enviar via WhatsApp -->
-                <button class="btn btn-primary btn-submit" onclick="enviarWhatsapp()">Confirmar Presença via WhatsApp</button>
+                <button class="btn btn-primary" type="button" onclick="enviarParaPlanilha()">Confirmar Presença e Enviar</button>
               </div>
             </div>
           </form>
@@ -232,83 +244,53 @@
 </div>
 
 <script>
-  function adicionarCampo() {
-    var div = document.getElementById('additionalFields');
-    var novoCampo = document.createElement('div');
-    novoCampo.innerHTML = `
-      <div class="row">
-        <div class="col-md-6 pb-3">
-          <div class="form-group">
-            <label for="name-input">Nome e Sobrenome*</label>
-            <input class="form-control" type="text" name="name" required="required"/>
-          </div>
-        </div>
-        <div class="col-md-6 pb-3">
-          <div class="form-group">
-            <label for="number-input">Sua senha*</label>
-            <input class="form-control" type="number" name="number" required="required"/>
-          </div>
-        </div>
-        <div class="col-md-6 pb-3">
-            <div class="form-group">
-              <button class="btn btn-danger" onclick="removerCampo(this)">Remover</button>
-            </div>
-        </div>
-      </div>
-    `;
-    div.appendChild(novoCampo);
-  }
-  function removerCampo(botao) {
-    botao.parentElement.parentElement.parentElement.remove();
+  function toggleGuestDetails(isAllGoing) {
+    document.getElementById('guestDetails').style.display = isAllGoing ? 'none' : 'block';
   }
 
-  function enviarWhatsapp() {
+  function enviarParaPlanilha() {
     event.preventDefault();
     
-    // Verifica se todos os campos estão preenchidos
-    var campos = document.querySelectorAll('#confirmationForm [name="name"]');
-    for (var i = 0; i < campos.length; i++) {
-        if (campos[i].value.trim() === '') {
-            alert('Por favor, preencha todos os campos.');
-            return;
-        }
-    }
-    
-    var nomes = [];
-    var senhas = [];
+    var respondentName = document.getElementById('respondentName').value.trim();
+    var allGoing = document.querySelector('input[name="allGoing"]:checked').value;
+    var attendingGuests = document.getElementById('attendingGuests').value.trim();
+    var absentGuests = document.getElementById('absentGuests').value.trim();
+    var guestFields = document.querySelectorAll('#additionalFields [name="guestName"]');
+    var guestNames = [];
 
-    campos.forEach(function(campo) {
-        nomes.push(campo.value);
+    guestFields.forEach(function(field) {
+      guestNames.push(field.value.trim());
     });
 
-    campos = document.querySelectorAll('#confirmationForm [name="number"]');
-    campos.forEach(function(campo) {
-        senhas.push(campo.value);
-    });
+    // Cria o objeto para enviar ao Google Apps Script
+    var data = {
+      respondentName: respondentName,
+      allGoing: allGoing,
+      guestNames: guestNames.join(", "),
+      attendingGuests: allGoing === 'Sim' ? guestNames.join(", ") : attendingGuests,
+      absentGuests: allGoing === 'Sim' ? '' : absentGuests
+    };
 
-    // Constrói a mensagem com quebras de linha
-    var mensagem = '*Confirmação de presença do site de M & R*\n\n';
-    for (var i = 0; i < nomes.length; i++) {
-        mensagem += '*Nome:* ' + nomes[i] + '\n\n';
-        mensagem += '*Senha:* ' + senhas[i] + '\n\n';
-    }
-    mensagem += '*Confirmo minha presença* para o casamento de *Mariane e Robson* na data de *21 de Abril, 2025*.\n\n';
-    mensagem += '*Felicidade aos noivos.*';
-
-    // Codifica a mensagem para que seja tratada corretamente pelo WhatsApp
-    mensagem = encodeURIComponent(mensagem);
-
-    // Constrói o link do WhatsApp com os dados preenchidos
-    var linkWhatsapp = `https://api.whatsapp.com/send?phone=5571984671904&text=${mensagem}`;
-
-    // Abre o link do WhatsApp em uma nova aba
-    window.open(linkWhatsapp, "_blank");
-
-    // Evita que o link padrão seja seguido
-    return false;
-}
-
+    // Envia os dados para o script
+    fetch('https://script.google.com/macros/s/AKfycbyiNlAd-rEiTUdOSfHuiojBr20n0bUbTP1NCVK6cVRSYRxxfqDz25-S6knndTFcXRJXrA/exec', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.status === 'success') {
+        alert('Presença confirmada e enviada para a planilha!');
+      } else {
+        alert('Erro ao enviar os dados.');
+      }
+    })
+    .catch(error => console.error('Erro:', error));
+  }
 </script>
+
 
 <div class="ww-section bg-light" id="gallery">
   <div class="ww-photo-gallery">
